@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ajin Vins S | IT Support & AWS Cloud</title>
+
+  <meta name="description"
+        content="Ajin Vins S - IT Support Specialist, Network Administrator and AWS Cloud & DevOps professional.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b1120;
+      color: #e5e7eb;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11, 17, 32, 0.95);
+      border-bottom: 1px solid #1f2937;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+      min-height: 65px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at top right, #12365a 0, transparent 35%),
+        #0b1120;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hello {
+      color: #38bdf8;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 8vw, 72px);
+      line-height: 1.1;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: clamp(22px, 4vw, 32px);
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      max-width: 700px;
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 8px;
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #38bdf8;
+      color: #07111f;
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #07111f;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-title {
+      font-size: 36px;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .section-line {
+      width: 55px;
+      height: 4px;
+      background: #38bdf8;
+      margin-bottom: 35px;
+      border-radius: 5px;
+    }
+
+    .section-text {
+      color: #cbd5e1;
+      max-width: 850px;
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .skill-card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      padding: 25px;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: #38bdf8;
+    }
+
+    .skill-card h3 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    /* EXPERIENCE */
+
+    .timeline {
+      border-left: 2px solid #38bdf8;
+      padding-left: 25px;
+      margin-top: 30px;
+    }
+
+    .timeline-item {
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #38bdf8;
+      border-radius: 50%;
+      left: -32px;
+      top: 8px;
+    }
+
+    .timeline-item h3 {
+      color: white;
+      font-size: 21px;
+    }
+
+    .timeline-item .company {
+      color: #38bdf8;
+      font-weight: bold;
+    }
+
+    .timeline-item .date {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-item ul {
+      padding-left: 20px;
+      color: #cbd5e1;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .project {
+      background: #111827;
+      border: 1px solid #1f2937;
+      padding: 28px;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: #38bdf8;
+    }
+
+    .project h3 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .project p {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .tags {
+      margin-top: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #172033;
+      color: #38bdf8;
+      padding: 5px 9px;
+      margin: 3px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    /* CERTIFICATIONS */
+
+    .cert-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .cert {
+      background: #111827;
+      border: 1px solid #1f2937;
+      padding: 22px;
+      border-radius: 10px;
+    }
+
+    .cert h3 {
+      color: white;
+      font-size: 17px;
+    }
+
+    .cert p {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      background: #111827;
+      border: 1px solid #1f2937;
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .contact-box p {
+      color: #cbd5e1;
+      margin-bottom: 25px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #1f2937;
+      padding: 30px 0;
+      text-align: center;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .contact-box {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="container nav-container">
+
+      <div class="logo">AJIN VINS</div>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container hero-content">
+
+      <div class="hello">Hello, I'm</div>
+
+      <h1>Ajin Vins S</h1>
+
+      <h2>IT Support Specialist | Network Administrator | AWS Cloud & DevOps</h2>
+
+      <p>
+        IT professional with hands-on experience in technical support,
+        network infrastructure, system administration and enterprise IT
+        environments, currently developing expertise in AWS Cloud and DevOps.
+      </p>
+
+      <div class="buttons">
+
+        <a class="btn btn-primary" href="#projects">
+          View My Projects
+        </a>
+
+        <a class="btn" href="#contact">
+          Contact Me
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <h2 class="section-title">About Me</h2>
+      <div class="section-line"></div>
+
+      <p class="section-text">
+        I am an IT professional with experience supporting users,
+        troubleshooting hardware and software issues, managing network
+        infrastructure and maintaining IT systems in enterprise and
+        healthcare environments.
+        <br><br>
+        My technical background includes networking, Windows systems,
+        firewalls, wireless infrastructure, server administration and
+        IT service support. I am also building practical skills in
+        AWS Cloud and DevOps technologies including EC2, S3, IAM, VPC,
+        Docker, Jenkins, Git, Terraform and CI/CD.
+        <br><br>
+        My current career focus is on opportunities in IT Support,
+        Network Administration, Cloud Support and AWS/DevOps.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <div class="container">
+
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="section-line"></div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h3>AWS Cloud</h3>
+          <p>
+            EC2, S3, IAM, VPC, CloudWatch, CloudFormation,
+            Security Groups and basic cloud infrastructure.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Networking</h3>
+          <p>
+            Cisco Routers, Switching, VLAN, LAN/WAN,
+            Wireless Networks, MPLS, Leased Lines and TCP/IP.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Security</h3>
+          <p>
+            SonicWall, Firewall administration, security policies,
+            network segmentation and troubleshooting.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Windows & Servers</h3>
+          <p>
+            Windows Server, Active Directory, DNS, DHCP,
+            Group Policy and system troubleshooting.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>DevOps</h3>
+          <p>
+            Docker, Jenkins, Git, GitHub, Terraform and
+            CI/CD pipeline fundamentals.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <h3>IT Support</h3>
+          <p>
+            Hardware/software troubleshooting, printers,
+            user support, incident management and asset support.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- EXPERIENCE -->
+
+  <section id="experience">
+
+    <div class="container">
+
+      <h2 class="section-title">Experience</h2>
+      <div class="section-line"></div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+
+          <h3>IT Support / Network Administration</h3>
+
+          <div class="company">
+            Eduquity Career Technologies
+          </div>
+
+          <div class="date">
+            Mar 2022 – Apr 2025
+          </div>
+
+          <ul>
+            <li>Provided technical support for users and IT infrastructure.</li>
+            <li>Managed network devices, connectivity and troubleshooting.</li>
+            <li>Supported Cisco networking and wireless infrastructure.</li>
+            <li>Worked with firewalls and network security.</li>
+            <li>Handled hardware, software and system-related incidents.</li>
+            <li>Supported IT asset and incident management processes.</li>
+          </ul>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <h3>IT Support / Infrastructure</h3>
+
+          <div class="company">
+            Healthcare IT Environment
+          </div>
+
+          <div class="date">
+            Current / Recent Experience
+          </div>
+
+          <ul>
+            <li>Supported computers, printers and clinical IT systems.</li>
+            <li>Troubleshot network and application connectivity.</li>
+            <li>Supported Windows systems and user accounts.</li>
+            <li>Assisted with server, network and infrastructure issues.</li>
+            <li>Provided day-to-day technical support to users.</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <div class="container">
+
+      <h2 class="section-title">Projects</h2>
+      <div class="section-line"></div>
+
+      <div class="projects-grid">
+
+
+        <div class="project">
+
+          <h3>AWS Static Website</h3>
+
+          <p>
+            Designed and deployed a static website using AWS services.
+            The project demonstrates cloud hosting, storage,
+            networking and basic AWS architecture.
+          </p>
+
+          <div class="tags">
+            <span class="tag">AWS</span>
+            <span class="tag">S3</span>
+            <span class="tag">CloudFront</span>
+            <span class="tag">Route 53</span>
+          </div>
+
+        </div>
+
+
+        <div class="project">
+
+          <h3>AWS VPC Infrastructure</h3>
+
+          <p>
+            Created a practical AWS networking environment with VPC,
+            public and private subnets, route tables, Internet Gateway
+            and EC2 instances.
+          </p>
+
+          <div class="tags">
+            <span class="tag">AWS</span>
+            <span class="tag">VPC</span>
+            <span class="tag">EC2</span>
+            <span class="tag">Networking</span>
+          </div>
+
+        </div>
+
+
+        <div class="project">
+
+          <h3>CI/CD Pipeline</h3>
+
+          <p>
+            Built a learning project demonstrating source-code
+            management and automated application deployment using
+            GitHub and Jenkins.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Jenkins</span>
+            <span class="tag">CI/CD</span>
+          </div>
+
+        </div>
+
+
+        <div class="project">
+
+          <h3>Docker Application Deployment</h3>
+
+          <p>
+            Practiced containerizing an application with Docker and
+            deploying the container in a cloud-based environment.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Docker</span>
+            <span class="tag">Linux</span>
+            <span class="tag">AWS</span>
+          </div>
+
+        </div>
+
+
+        <div class="project">
+
+          <h3>Network Segmentation</h3>
+
+          <p>
+            Designed a segmented network concept for healthcare
+            environments separating clinical systems, guest users
+            and wireless infrastructure.
+          </p>
+
+          <div class="tags">
+            <span class="tag">VLAN</span>
+            <span class="tag">Switching</span>
+            <span class="tag">Firewall</span>
+            <span class="tag">Wi-Fi</span>
+          </div>
+
+        </div>
+
+
+        <div class="project">
+
+          <h3>Windows Server Lab</h3>
+
+          <p>
+            Built a practical Windows Server learning environment
+            covering Active Directory, DNS, DHCP and Group Policy.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Windows Server</span>
+            <span class="tag">AD</span>
+            <span class="tag">DNS</span>
+            <span class="tag">DHCP</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CERTIFICATIONS -->
+
+  <section id="certifications">
+
+    <div class="container">
+
+      <h2 class="section-title">Certifications & Learning</h2>
+      <div class="section-line"></div>
+
+      <div class="cert-list">
+
+        <div class="cert">
+          <h3>AWS Cloud</h3>
+          <p>
+            AWS Cloud infrastructure and services — practical learning.
+          </p>
+        </div>
+
+        <div class="cert">
+          <h3>DevOps</h3>
+          <p>
+            Docker, Jenkins, Git, GitHub, Terraform and CI/CD.
+          </p>
+        </div>
+
+        <div class="cert">
+          <h3>Networking</h3>
+          <p>
+            Enterprise networking, routing, switching and security.
+          </p>
+        </div>
+
+        <div class="cert">
+          <h3>IT Support</h3>
+          <p>
+            Technical support, troubleshooting and IT infrastructure.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="container">
+
+      <h2 class="section-title">Let's Connect</h2>
+      <div class="section-line"></div>
+
+      <div class="contact-box">
+
+        <p>
+          I am open to opportunities in IT Support,
+          Network Administration, Cloud Support and AWS/DevOps.
+        </p>
+
+        <!-- Replace the links below with your real details -->
+
+        <div class="buttons" style="justify-content:center;">
+
+          <a class="btn btn-primary"
+             href="mailto:YOUR-EMAIL@example.com">
+            Email Me
+          </a>
+
+          <a class="btn"
+             href="https://github.com/Ajin-vins"
+             target="_blank">
+            GitHub
+          </a>
+
+          <a class="btn"
+             href="https://www.linkedin.com/in/YOUR-LINKEDIN/"
+             target="_blank">
+            LinkedIn
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      © 2026 Ajin Vins S · IT Support & AWS Cloud
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
