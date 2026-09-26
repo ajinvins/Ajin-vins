@@ -1,844 +1,1341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Ajin Vins S | IT Support & AWS Cloud</title>
-
-  <meta name="description"
-        content="Ajin Vins S - IT Support Specialist, Network Administrator and AWS Cloud & DevOps professional.">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b1120;
-      color: #e5e7eb;
-      line-height: 1.7;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    /* NAVBAR */
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(11, 17, 32, 0.95);
-      border-bottom: 1px solid #1f2937;
-      backdrop-filter: blur(10px);
-    }
-
-    .nav-container {
-      min-height: 65px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      color: #38bdf8;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: #cbd5e1;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #38bdf8;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      background:
-        radial-gradient(circle at top right, #12365a 0, transparent 35%),
-        #0b1120;
-    }
-
-    .hero-content {
-      max-width: 800px;
-    }
-
-    .hello {
-      color: #38bdf8;
-      font-weight: bold;
-      margin-bottom: 10px;
-      font-size: 18px;
-    }
-
-    h1 {
-      font-size: clamp(42px, 8vw, 72px);
-      line-height: 1.1;
-      margin-bottom: 15px;
-      color: white;
-    }
-
-    .hero h2 {
-      font-size: clamp(22px, 4vw, 32px);
-      color: #94a3b8;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      color: #cbd5e1;
-      max-width: 700px;
-      font-size: 17px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 22px;
-      border-radius: 8px;
-      border: 1px solid #38bdf8;
-      color: #38bdf8;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #38bdf8;
-      color: #07111f;
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: #38bdf8;
-      color: #07111f;
-    }
-
-    /* SECTIONS */
-
-    section {
-      padding: 85px 0;
-    }
-
-    .section-title {
-      font-size: 36px;
-      color: white;
-      margin-bottom: 12px;
-    }
-
-    .section-line {
-      width: 55px;
-      height: 4px;
-      background: #38bdf8;
-      margin-bottom: 35px;
-      border-radius: 5px;
-    }
-
-    .section-text {
-      color: #cbd5e1;
-      max-width: 850px;
-    }
-
-    /* SKILLS */
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-      margin-top: 30px;
-    }
-
-    .skill-card {
-      background: #111827;
-      border: 1px solid #1f2937;
-      padding: 25px;
-      border-radius: 12px;
-      transition: 0.3s;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-5px);
-      border-color: #38bdf8;
-    }
-
-    .skill-card h3 {
-      color: #38bdf8;
-      margin-bottom: 10px;
-    }
-
-    .skill-card p {
-      color: #cbd5e1;
-      font-size: 14px;
-    }
-
-    /* EXPERIENCE */
-
-    .timeline {
-      border-left: 2px solid #38bdf8;
-      padding-left: 25px;
-      margin-top: 30px;
-    }
-
-    .timeline-item {
-      margin-bottom: 40px;
-      position: relative;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: #38bdf8;
-      border-radius: 50%;
-      left: -32px;
-      top: 8px;
-    }
-
-    .timeline-item h3 {
-      color: white;
-      font-size: 21px;
-    }
-
-    .timeline-item .company {
-      color: #38bdf8;
-      font-weight: bold;
-    }
-
-    .timeline-item .date {
-      color: #94a3b8;
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-
-    .timeline-item ul {
-      padding-left: 20px;
-      color: #cbd5e1;
-    }
-
-    /* PROJECTS */
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .project {
-      background: #111827;
-      border: 1px solid #1f2937;
-      padding: 28px;
-      border-radius: 12px;
-      transition: 0.3s;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      border-color: #38bdf8;
-    }
-
-    .project h3 {
-      color: white;
-      margin-bottom: 10px;
-    }
-
-    .project p {
-      color: #cbd5e1;
-      font-size: 14px;
-    }
-
-    .tags {
-      margin-top: 18px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #172033;
-      color: #38bdf8;
-      padding: 5px 9px;
-      margin: 3px;
-      border-radius: 5px;
-      font-size: 12px;
-    }
-
-    /* CERTIFICATIONS */
-
-    .cert-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-      margin-top: 30px;
-    }
-
-    .cert {
-      background: #111827;
-      border: 1px solid #1f2937;
-      padding: 22px;
-      border-radius: 10px;
-    }
-
-    .cert h3 {
-      color: white;
-      font-size: 17px;
-    }
-
-    .cert p {
-      color: #94a3b8;
-      font-size: 14px;
-    }
-
-    /* CONTACT */
-
-    .contact-box {
-      background: #111827;
-      border: 1px solid #1f2937;
-      padding: 40px;
-      border-radius: 15px;
-      text-align: center;
-    }
-
-    .contact-box p {
-      color: #cbd5e1;
-      margin-bottom: 25px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      border-top: 1px solid #1f2937;
-      padding: 30px 0;
-      text-align: center;
-      color: #64748b;
-      font-size: 14px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 700px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        min-height: 80vh;
-      }
-
-      section {
-        padding: 65px 0;
-      }
-
-      .section-title {
-        font-size: 30px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      .buttons {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      .contact-box {
-        padding: 25px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ajin Vins S | IT Support | AWS Cloud & DevOps</title>
+
+    <meta name="description"
+          content="Ajin Vins S - IT Support, Network Administration, AWS Cloud and DevOps professional based in Riyadh, Saudi Arabia.">
+
+    <meta name="author" content="Ajin Vins S">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #050816;
+            --bg2: #0b1026;
+            --card: rgba(15, 23, 42, 0.65);
+            --border: rgba(0, 212, 255, 0.2);
+            --primary: #00d9ff;
+            --secondary: #7c3aed;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0, 217, 255, 0.08), transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(124, 58, 237, 0.08), transparent 30%),
+                var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* 3D Background */
+        #three-bg {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(5, 8, 22, 0.15),
+                rgba(5, 8, 22, 0.65)
+            );
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(15px);
+            background: rgba(5, 8, 22, 0.65);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #cbd5e1;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 8%;
+            position: relative;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 120px;
+        }
+
+        .hero-content {
+            max-width: 950px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 10px 18px;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            background: rgba(0, 217, 255, 0.05);
+            color: var(--primary);
+            font-size: 13px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 25px rgba(0,217,255,0.08);
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 95px);
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: -4px;
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #00d9ff,
+                #7c3aed,
+                #00d9ff
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 5s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .hero h2 {
+            color: #cbd5e1;
+            font-size: clamp(20px, 3vw, 30px);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #001018;
+            box-shadow: 0 0 30px rgba(0,217,255,0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 45px rgba(0,217,255,0.45);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.15);
+            color: white;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        /* Section headings */
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title small {
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(32px, 5vw, 52px);
+            margin-top: 10px;
+        }
+
+        /* About */
+        .about-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .glass {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(15px);
+            transition: 0.4s;
+        }
+
+        .glass:hover {
+            transform: translateY(-7px);
+            border-color: rgba(0,217,255,0.45);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+        }
+
+        .glass h3 {
+            margin-bottom: 18px;
+            color: white;
+        }
+
+        .glass p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            padding: 20px;
+            text-align: center;
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 25px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            transition: 0.35s;
+        }
+
+        .skill-card:hover {
+            transform: perspective(700px) rotateX(4deg) rotateY(-4deg) translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,217,255,0.1);
+        }
+
+        .skill-icon {
+            font-size: 30px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Experience */
+        .timeline {
+            max-width: 900px;
+            margin: auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(
+                var(--primary),
+                var(--secondary),
+                transparent
+            );
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 55px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 7px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        .timeline-item h3 {
+            font-size: 20px;
+        }
+
+        .timeline-item .date {
+            color: var(--primary);
+            font-size: 13px;
+            margin: 7px 0 12px;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        /* Projects */
+        .projects {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            position: relative;
+            overflow: hidden;
+            padding: 30px;
+            min-height: 250px;
+        }
+
+        .project-number {
+            font-size: 45px;
+            font-weight: 800;
+            color: rgba(0,217,255,0.15);
+        }
+
+        .project h3 {
+            margin: 15px 0;
+        }
+
+        .project p {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 18px;
+        }
+
+        .tag {
+            font-size: 11px;
+            padding: 6px 9px;
+            border-radius: 20px;
+            background: rgba(0,217,255,0.08);
+            color: var(--primary);
+            border: 1px solid rgba(0,217,255,0.15);
+        }
+
+        /* Contact */
+        .contact-container {
+            max-width: 950px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .contact-box {
+            padding: 25px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .contact-box i {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .contact-box span {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 5px;
+            word-break: break-word;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* Mobile */
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
+<!-- 3D Background -->
+<canvas id="three-bg"></canvas>
+<div class="overlay"></div>
 
-  <nav>
-    <div class="container nav-container">
+<!-- Navigation -->
+<nav>
+    <div class="logo">AJIN<span>.</span></div>
 
-      <div class="logo">AJIN VINS</div>
-
-      <ul class="nav-links">
+    <ul>
+        <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
-      </ul>
+    </ul>
+</nav>
 
-    </div>
-  </nav>
+<!-- HERO -->
+<section class="hero" id="home">
 
+    <div class="hero-content">
 
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="container hero-content">
-
-      <div class="hello">Hello, I'm</div>
-
-      <h1>Ajin Vins S</h1>
-
-      <h2>IT Support Specialist | Network Administrator | AWS Cloud & DevOps</h2>
-
-      <p>
-        IT professional with hands-on experience in technical support,
-        network infrastructure, system administration and enterprise IT
-        environments, currently developing expertise in AWS Cloud and DevOps.
-      </p>
-
-      <div class="buttons">
-
-        <a class="btn btn-primary" href="#projects">
-          View My Projects
-        </a>
-
-        <a class="btn" href="#contact">
-          Contact Me
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ABOUT -->
-
-  <section id="about">
-
-    <div class="container">
-
-      <h2 class="section-title">About Me</h2>
-      <div class="section-line"></div>
-
-      <p class="section-text">
-        I am an IT professional with experience supporting users,
-        troubleshooting hardware and software issues, managing network
-        infrastructure and maintaining IT systems in enterprise and
-        healthcare environments.
-        <br><br>
-        My technical background includes networking, Windows systems,
-        firewalls, wireless infrastructure, server administration and
-        IT service support. I am also building practical skills in
-        AWS Cloud and DevOps technologies including EC2, S3, IAM, VPC,
-        Docker, Jenkins, Git, Terraform and CI/CD.
-        <br><br>
-        My current career focus is on opportunities in IT Support,
-        Network Administration, Cloud Support and AWS/DevOps.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- SKILLS -->
-
-  <section id="skills">
-
-    <div class="container">
-
-      <h2 class="section-title">Technical Skills</h2>
-      <div class="section-line"></div>
-
-      <div class="skills-grid">
-
-        <div class="skill-card">
-          <h3>AWS Cloud</h3>
-          <p>
-            EC2, S3, IAM, VPC, CloudWatch, CloudFormation,
-            Security Groups and basic cloud infrastructure.
-          </p>
+        <div class="badge">
+            <i class="fa-solid fa-circle"></i>
+            Available for IT Opportunities in Riyadh
         </div>
 
-        <div class="skill-card">
-          <h3>Networking</h3>
-          <p>
-            Cisco Routers, Switching, VLAN, LAN/WAN,
-            Wireless Networks, MPLS, Leased Lines and TCP/IP.
-          </p>
-        </div>
-
-        <div class="skill-card">
-          <h3>Security</h3>
-          <p>
-            SonicWall, Firewall administration, security policies,
-            network segmentation and troubleshooting.
-          </p>
-        </div>
-
-        <div class="skill-card">
-          <h3>Windows & Servers</h3>
-          <p>
-            Windows Server, Active Directory, DNS, DHCP,
-            Group Policy and system troubleshooting.
-          </p>
-        </div>
-
-        <div class="skill-card">
-          <h3>DevOps</h3>
-          <p>
-            Docker, Jenkins, Git, GitHub, Terraform and
-            CI/CD pipeline fundamentals.
-          </p>
-        </div>
-
-        <div class="skill-card">
-          <h3>IT Support</h3>
-          <p>
-            Hardware/software troubleshooting, printers,
-            user support, incident management and asset support.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- EXPERIENCE -->
-
-  <section id="experience">
-
-    <div class="container">
-
-      <h2 class="section-title">Experience</h2>
-      <div class="section-line"></div>
-
-      <div class="timeline">
-
-        <div class="timeline-item">
-
-          <h3>IT Support / Network Administration</h3>
-
-          <div class="company">
-            Eduquity Career Technologies
-          </div>
-
-          <div class="date">
-            Mar 2022 – Apr 2025
-          </div>
-
-          <ul>
-            <li>Provided technical support for users and IT infrastructure.</li>
-            <li>Managed network devices, connectivity and troubleshooting.</li>
-            <li>Supported Cisco networking and wireless infrastructure.</li>
-            <li>Worked with firewalls and network security.</li>
-            <li>Handled hardware, software and system-related incidents.</li>
-            <li>Supported IT asset and incident management processes.</li>
-          </ul>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-          <h3>IT Support / Infrastructure</h3>
-
-          <div class="company">
-            Healthcare IT Environment
-          </div>
-
-          <div class="date">
-            Current / Recent Experience
-          </div>
-
-          <ul>
-            <li>Supported computers, printers and clinical IT systems.</li>
-            <li>Troubleshot network and application connectivity.</li>
-            <li>Supported Windows systems and user accounts.</li>
-            <li>Assisted with server, network and infrastructure issues.</li>
-            <li>Provided day-to-day technical support to users.</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- PROJECTS -->
-
-  <section id="projects">
-
-    <div class="container">
-
-      <h2 class="section-title">Projects</h2>
-      <div class="section-line"></div>
-
-      <div class="projects-grid">
-
-
-        <div class="project">
-
-          <h3>AWS Static Website</h3>
-
-          <p>
-            Designed and deployed a static website using AWS services.
-            The project demonstrates cloud hosting, storage,
-            networking and basic AWS architecture.
-          </p>
-
-          <div class="tags">
-            <span class="tag">AWS</span>
-            <span class="tag">S3</span>
-            <span class="tag">CloudFront</span>
-            <span class="tag">Route 53</span>
-          </div>
-
-        </div>
-
-
-        <div class="project">
-
-          <h3>AWS VPC Infrastructure</h3>
-
-          <p>
-            Created a practical AWS networking environment with VPC,
-            public and private subnets, route tables, Internet Gateway
-            and EC2 instances.
-          </p>
-
-          <div class="tags">
-            <span class="tag">AWS</span>
-            <span class="tag">VPC</span>
-            <span class="tag">EC2</span>
-            <span class="tag">Networking</span>
-          </div>
-
-        </div>
-
-
-        <div class="project">
-
-          <h3>CI/CD Pipeline</h3>
-
-          <p>
-            Built a learning project demonstrating source-code
-            management and automated application deployment using
-            GitHub and Jenkins.
-          </p>
-
-          <div class="tags">
-            <span class="tag">Git</span>
-            <span class="tag">GitHub</span>
-            <span class="tag">Jenkins</span>
-            <span class="tag">CI/CD</span>
-          </div>
-
-        </div>
-
-
-        <div class="project">
-
-          <h3>Docker Application Deployment</h3>
-
-          <p>
-            Practiced containerizing an application with Docker and
-            deploying the container in a cloud-based environment.
-          </p>
-
-          <div class="tags">
-            <span class="tag">Docker</span>
-            <span class="tag">Linux</span>
-            <span class="tag">AWS</span>
-          </div>
-
-        </div>
-
-
-        <div class="project">
-
-          <h3>Network Segmentation</h3>
-
-          <p>
-            Designed a segmented network concept for healthcare
-            environments separating clinical systems, guest users
-            and wireless infrastructure.
-          </p>
-
-          <div class="tags">
-            <span class="tag">VLAN</span>
-            <span class="tag">Switching</span>
-            <span class="tag">Firewall</span>
-            <span class="tag">Wi-Fi</span>
-          </div>
-
-        </div>
-
-
-        <div class="project">
-
-          <h3>Windows Server Lab</h3>
-
-          <p>
-            Built a practical Windows Server learning environment
-            covering Active Directory, DNS, DHCP and Group Policy.
-          </p>
-
-          <div class="tags">
-            <span class="tag">Windows Server</span>
-            <span class="tag">AD</span>
-            <span class="tag">DNS</span>
-            <span class="tag">DHCP</span>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CERTIFICATIONS -->
-
-  <section id="certifications">
-
-    <div class="container">
-
-      <h2 class="section-title">Certifications & Learning</h2>
-      <div class="section-line"></div>
-
-      <div class="cert-list">
-
-        <div class="cert">
-          <h3>AWS Cloud</h3>
-          <p>
-            AWS Cloud infrastructure and services — practical learning.
-          </p>
-        </div>
-
-        <div class="cert">
-          <h3>DevOps</h3>
-          <p>
-            Docker, Jenkins, Git, GitHub, Terraform and CI/CD.
-          </p>
-        </div>
-
-        <div class="cert">
-          <h3>Networking</h3>
-          <p>
-            Enterprise networking, routing, switching and security.
-          </p>
-        </div>
-
-        <div class="cert">
-          <h3>IT Support</h3>
-          <p>
-            Technical support, troubleshooting and IT infrastructure.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CONTACT -->
-
-  <section id="contact">
-
-    <div class="container">
-
-      <h2 class="section-title">Let's Connect</h2>
-      <div class="section-line"></div>
-
-      <div class="contact-box">
+        <h1>
+            AJIN <span class="gradient-text">VINS S</span>
+        </h1>
+
+        <h2>
+            IT Support Specialist | Network Administrator |
+            AWS Cloud & DevOps
+        </h2>
 
         <p>
-          I am open to opportunities in IT Support,
-          Network Administration, Cloud Support and AWS/DevOps.
+            IT professional with experience in network administration,
+            infrastructure support, troubleshooting and enterprise IT
+            environments, currently building expertise in AWS Cloud,
+            DevOps, Docker, CI/CD and modern cloud infrastructure.
         </p>
 
-        <!-- Replace the links below with your real details -->
+        <div class="buttons">
 
-        <div class="buttons" style="justify-content:center;">
+            <a href="#contact" class="btn btn-primary">
+                <i class="fa-solid fa-envelope"></i>
+                Contact Me
+            </a>
 
-          <a class="btn btn-primary"
-             href="mailto:YOUR-EMAIL@example.com">
-            Email Me
-          </a>
+            <a href="Ajin_Vins_Resume.pdf"
+               class="btn btn-outline"
+               download>
+                <i class="fa-solid fa-download"></i>
+                Download Resume
+            </a>
 
-          <a class="btn"
-             href="https://github.com/Ajin-vins"
-             target="_blank">
-            GitHub
-          </a>
-
-          <a class="btn"
-             href="https://www.linkedin.com/in/YOUR-LINKEDIN/"
-             target="_blank">
-            LinkedIn
-          </a>
+            <a href="https://github.com/ajinvins"
+               target="_blank"
+               class="btn btn-outline">
+                <i class="fa-brands fa-github"></i>
+                GitHub
+            </a>
 
         </div>
 
-      </div>
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+    <div class="section-title">
+        <small>Profile</small>
+        <h2>About Me</h2>
+    </div>
+
+    <div class="about-grid">
+
+        <div class="glass">
+
+            <h3>
+                <i class="fa-solid fa-user"></i>
+                Professional Profile
+            </h3>
+
+            <p>
+                I am an IT professional based in Riyadh, Saudi Arabia,
+                with practical experience in IT support, network
+                administration, infrastructure troubleshooting and
+                enterprise technology environments.
+            </p>
+
+            <br>
+
+            <p>
+                My current career focus is AWS Cloud and DevOps.
+                I am developing hands-on knowledge in AWS services,
+                Linux, Docker, Git, Jenkins, Terraform and CI/CD
+                technologies.
+            </p>
+
+        </div>
+
+
+        <div class="glass">
+
+            <h3>
+                <i class="fa-solid fa-rocket"></i>
+                Career Direction
+            </h3>
+
+            <p>
+                Looking for opportunities where I can combine my
+                networking and IT infrastructure background with
+                cloud technologies and DevOps practices.
+            </p>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>IT</strong>
+                    <span>Infrastructure</span>
+                </div>
+
+                <div class="stat">
+                    <strong>AWS</strong>
+                    <span>Cloud</span>
+                </div>
+
+                <div class="stat">
+                    <strong>DevOps</strong>
+                    <span>Automation</span>
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- FOOTER -->
+<!-- SKILLS -->
+<section id="skills">
 
-  <footer>
+    <div class="section-title">
+        <small>Technical Stack</small>
+        <h2>My Skills</h2>
+    </div>
 
-    <div class="container">
+    <div class="skills-grid">
 
-      © 2026 Ajin Vins S · IT Support & AWS Cloud
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                <i class="fa-brands fa-aws"></i>
+            </div>
+
+            <h3>AWS Cloud</h3>
+
+            <p>
+                EC2, S3, IAM, VPC, Subnets, Route Tables,
+                Internet Gateway, CloudWatch, CloudFormation,
+                CloudFront and Route 53.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                <i class="fa-solid fa-network-wired"></i>
+            </div>
+
+            <h3>Networking</h3>
+
+            <p>
+                LAN/WAN, TCP/IP, VLANs, routing, switching,
+                wireless networking, firewalls, DHCP, DNS
+                and network troubleshooting.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                <i class="fa-brands fa-docker"></i>
+            </div>
+
+            <h3>DevOps</h3>
+
+            <p>
+                Docker, Git, GitHub, Jenkins, CI/CD,
+                Terraform and cloud infrastructure concepts.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                <i class="fa-brands fa-linux"></i>
+            </div>
+
+            <h3>Linux</h3>
+
+            <p>
+                Linux administration, system troubleshooting,
+                permissions, services, networking and
+                server fundamentals.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                <i class="fa-solid fa-server"></i>
+            </div>
+
+            <h3>IT Infrastructure</h3>
+
+            <p>
+                Windows Server, Active Directory, DNS, DHCP,
+                printers, servers, endpoint troubleshooting
+                and enterprise IT support.
+            </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h3>Security</h3>
+
+            <p>
+                Firewall administration, network segmentation,
+                access control, endpoint security and
+                infrastructure security fundamentals.
+            </p>
+
+        </div>
 
     </div>
 
-  </footer>
+</section>
+
+
+<!-- EXPERIENCE -->
+<section id="experience">
+
+    <div class="section-title">
+        <small>Career</small>
+        <h2>Experience</h2>
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <h3>IT / Network Administration</h3>
+
+            <div class="date">
+                Professional Experience
+            </div>
+
+            <p>
+                Network and IT infrastructure support including
+                troubleshooting, LAN/WAN connectivity, network
+                devices, wireless infrastructure, firewall support,
+                server environments and user technical support.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <h3>Network Administrator</h3>
+
+            <div class="date">
+                Eduquity Career Technologies
+            </div>
+
+            <p>
+                Supported enterprise networking environments,
+                network monitoring, troubleshooting, switches,
+                routers, wireless systems and infrastructure
+                operations.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <h3>IT Support / Infrastructure</h3>
+
+            <div class="date">
+                Saudi Arabia
+            </div>
+
+            <p>
+                IT support involving computers, printers,
+                servers, applications, network connectivity,
+                users, hardware troubleshooting and hospital/
+                enterprise IT infrastructure.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+<section id="projects">
+
+    <div class="section-title">
+        <small>Portfolio</small>
+        <h2>Featured Projects</h2>
+    </div>
+
+    <div class="projects">
+
+
+        <div class="glass project">
+
+            <div class="project-number">01</div>
+
+            <h3>AWS Static Website</h3>
+
+            <p>
+                Designed and deployed a static website using
+                AWS cloud services with S3, CloudFront and
+                Route 53 concepts.
+            </p>
+
+            <div class="tags">
+                <span class="tag">AWS</span>
+                <span class="tag">S3</span>
+                <span class="tag">CloudFront</span>
+                <span class="tag">Route 53</span>
+            </div>
+
+        </div>
+
+
+        <div class="glass project">
+
+            <div class="project-number">02</div>
+
+            <h3>CI/CD Pipeline</h3>
+
+            <p>
+                Created a DevOps learning project demonstrating
+                GitHub source control, Jenkins automation,
+                Docker containerization and CI/CD concepts.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Git</span>
+                <span class="tag">Jenkins</span>
+                <span class="tag">Docker</span>
+                <span class="tag">CI/CD</span>
+            </div>
+
+        </div>
+
+
+        <div class="glass project">
+
+            <div class="project-number">03</div>
+
+            <h3>Network Infrastructure</h3>
+
+            <p>
+                Designed network segmentation concepts for
+                enterprise environments including VLANs,
+                DHCP, DNS, wireless and firewall architecture.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Networking</span>
+                <span class="tag">VLAN</span>
+                <span class="tag">DHCP</span>
+                <span class="tag">Firewall</span>
+            </div>
+
+        </div>
+
+
+        <div class="glass project">
+
+            <div class="project-number">04</div>
+
+            <h3>Docker Application</h3>
+
+            <p>
+                Containerized a web application and explored
+                Docker images, containers, networking,
+                volumes and deployment workflows.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Docker</span>
+                <span class="tag">Linux</span>
+                <span class="tag">DevOps</span>
+            </div>
+
+        </div>
+
+
+        <div class="glass project">
+
+            <div class="project-number">05</div>
+
+            <h3>Terraform Infrastructure</h3>
+
+            <p>
+                Infrastructure-as-Code learning project focused
+                on provisioning cloud resources using Terraform
+                and AWS.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Terraform</span>
+                <span class="tag">AWS</span>
+                <span class="tag">IaC</span>
+            </div>
+
+        </div>
+
+
+        <div class="glass project">
+
+            <div class="project-number">06</div>
+
+            <h3>IT Support Environment</h3>
+
+            <p>
+                Practical IT support environment covering
+                endpoint troubleshooting, printers, servers,
+                applications, networking and user support.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Windows</span>
+                <span class="tag">Servers</span>
+                <span class="tag">Networking</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+
+    <div class="section-title">
+        <small>Let's Connect</small>
+        <h2>Contact Me</h2>
+    </div>
+
+    <div class="contact-container">
+
+        <p style="color:#94a3b8; line-height:1.8;">
+            Interested in working together or discussing an IT,
+            Cloud or DevOps opportunity? Feel free to contact me.
+        </p>
+
+
+        <div class="contact-info">
+
+
+            <a class="glass contact-box"
+               href="mailto:ajin.vinss@gmail.com">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <strong>Email</strong>
+
+                <span>
+                    ajin.vinss@gmail.com
+                </span>
+
+            </a>
+
+
+            <a class="glass contact-box"
+               href="tel:+966564575468">
+
+                <i class="fa-solid fa-phone"></i>
+
+                <strong>Mobile</strong>
+
+                <span>
+                    +966 56 457 5468
+                </span>
+
+            </a>
+
+
+            <a class="glass contact-box"
+               href="https://www.linkedin.com/in/ajin-vins-s-484337227/"
+               target="_blank">
+
+                <i class="fa-brands fa-linkedin"></i>
+
+                <strong>LinkedIn</strong>
+
+                <span>
+                    Ajin Vins S
+                </span>
+
+            </a>
+
+
+            <a class="glass contact-box"
+               href="https://github.com/ajinvins"
+               target="_blank">
+
+                <i class="fa-brands fa-github"></i>
+
+                <strong>GitHub</strong>
+
+                <span>
+                    github.com/ajinvins
+                </span>
+
+            </a>
+
+
+            <div class="glass contact-box">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <strong>Location</strong>
+
+                <span>
+                    Riyadh, Saudi Arabia
+                </span>
+
+            </div>
+
+
+            <div class="glass contact-box">
+
+                <i class="fa-solid fa-cloud"></i>
+
+                <strong>Target Role</strong>
+
+                <span>
+                    AWS Cloud / DevOps / IT Support
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © <span id="year"></span>
+        <strong>Ajin Vins S</strong>.
+        All Rights Reserved.
+    </p>
+
+    <p style="margin-top:8px;">
+        IT Support • Networking • AWS Cloud • DevOps
+    </p>
+
+</footer>
+
+
+<script>
+
+    /* ===============================
+       THREE.JS 3D BACKGROUND
+    =============================== */
+
+    const canvas = document.getElementById("three-bg");
+
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+    );
+
+    const renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        alpha: true,
+        antialias: true
+    });
+
+    renderer.setPixelRatio(
+        Math.min(window.devicePixelRatio, 2)
+    );
+
+    renderer.setSize(
+        window.innerWidth,
+        window.innerHeight
+    );
+
+    camera.position.z = 8;
+
+
+    /* Particles */
+
+    const particleCount = 1800;
+
+    const positions = new Float32Array(
+        particleCount * 3
+    );
+
+    for (let i = 0; i < particleCount * 3; i++) {
+
+        positions[i] =
+            (Math.random() - 0.5) * 25;
+
+    }
+
+    const geometry = new THREE.BufferGeometry();
+
+    geometry.setAttribute(
+        "position",
+        new THREE.BufferAttribute(
+            positions,
+            3
+        )
+    );
+
+
+    const material = new THREE.PointsMaterial({
+
+        size: 0.025,
+
+        transparent: true,
+
+        opacity: 0.8
+
+    });
+
+
+    const particles = new THREE.Points(
+        geometry,
+        material
+    );
+
+    scene.add(particles);
+
+
+    /* 3D Wireframe Icosahedron */
+
+    const shapeGeometry =
+        new THREE.IcosahedronGeometry(
+            2.3,
+            2
+        );
+
+    const shapeMaterial =
+        new THREE.MeshBasicMaterial({
+
+            wireframe: true,
+
+            transparent: true,
+
+            opacity: 0.15
+
+        });
+
+
+    const shape =
+        new THREE.Mesh(
+            shapeGeometry,
+            shapeMaterial
+        );
+
+    shape.position.set(
+        4,
+        0,
+        -2
+    );
+
+    scene.add(shape);
+
+
+    /* Mouse movement */
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    document.addEventListener(
+        "mousemove",
+        (event) => {
+
+            mouseX =
+                (event.clientX /
+                    window.innerWidth -
+                    0.5);
+
+            mouseY =
+                (event.clientY /
+                    window.innerHeight -
+                    0.5);
+
+        }
+    );
+
+
+    /* Animation */
+
+    function animate() {
+
+        requestAnimationFrame(animate);
+
+        particles.rotation.y += 0.0005;
+        particles.rotation.x += 0.00015;
+
+        shape.rotation.x += 0.002;
+        shape.rotation.y += 0.003;
+
+        camera.position.x +=
+            (mouseX * 0.5 -
+                camera.position.x) * 0.02;
+
+        camera.position.y +=
+            (-mouseY * 0.5 -
+                camera.position.y) * 0.02;
+
+        camera.lookAt(scene.position);
+
+        renderer.render(
+            scene,
+            camera
+        );
+    }
+
+    animate();
+
+
+    /* Responsive Canvas */
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            camera.aspect =
+                window.innerWidth /
+                window.innerHeight;
+
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(
+                window.innerWidth,
+                window.innerHeight
+            );
+
+        }
+    );
+
+
+    /* Current Year */
+
+    document.getElementById("year")
+        .textContent =
+        new Date().getFullYear();
+
+</script>
 
 </body>
 </html>
