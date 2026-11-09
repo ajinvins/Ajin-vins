@@ -635,7 +635,7 @@
                 Contact Me
             </a>
 
-           <a href="Ajin Vins Resume.pdf"
+           <a href="Ajin_Vins_Resume.pdf"
    class="btn btn-outline"
    download
    onclick="gtag('event', 'cv_download', {
